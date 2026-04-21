@@ -130,6 +130,7 @@
     <ClInclude Include="File process.h" />
     <ClInclude Include="Reading input.h" />
     <ClInclude Include="String funcs.h" />
+    <ClInclude Include="User process.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
