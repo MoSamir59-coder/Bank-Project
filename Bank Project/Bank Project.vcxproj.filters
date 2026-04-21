@@ -32,5 +32,8 @@
     <ClInclude Include="File process.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="User process.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

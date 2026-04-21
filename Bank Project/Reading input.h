@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include "Client process.h"
+#include "User process.h"
 
 using namespace std;
 
@@ -41,6 +42,19 @@ namespace input_lib
 
 //====================================================================================================================
 
+	int read_positive_number_multiplier_of(int num)
+	{
+		int n;
+		do
+		{
+			cout << "Enter a number multiple of (" << num << ") " << endl;
+			cin >> n;
+		} while (n % num != 0);
+		return n;
+	}
+
+//====================================================================================================================
+
 	int read_number()
 	{
 		int Number;
@@ -69,6 +83,16 @@ namespace input_lib
 
 //====================================================================================================================
 
+	string read_client_pin_code()
+	{
+		string pin_code = "";
+		cout << "\nPlease enter pincode ---> ";
+		cin >> pin_code;
+		return pin_code;
+	}
+
+//====================================================================================================================
+
 	client_lib::struct_client read_new_client()
 	{
 		client_lib::struct_client client;
@@ -86,5 +110,51 @@ namespace input_lib
 		return client;
 	}
 
+//====================================================================================================================
+
+	string read_user_name()
+	{
+		string user_name = "";
+		cout << "\nPlease enter user name ---> ";
+		cin >> user_name;
+		return user_name;
+	}
+
+//====================================================================================================================
+
+	string read_password()
+	{
+		string password = "";
+		cout << "\nPlease enter password ---> ";
+		cin >> password;
+		return password;
+	}
+
+//====================================================================================================================
+
+	user_lib::struct_user read_new_user()
+	{
+		user_lib::struct_user user;
+		char answer;
+		cout << "Enter User name? ";
+		cin.ignore(1, '\n');
+		getline(cin, user.user_name);
+		cout << "Enter Password? ";
+		getline(cin, user.password);
+		cout << "Do you want to give full access? y/n?";
+		cin >> answer;
+		if (toupper(answer) == 'Y')
+		{
+			user.permissions = -1;
+			return user;
+		}
+		else
+		{
+			user.permissions_details = user_lib::read_permissions();
+		}
+		return user;
+	}
+
 }
+
 
